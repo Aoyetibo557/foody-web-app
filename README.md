@@ -16,8 +16,17 @@ You will also see any lint errors in the console.
 
 ### app screenshots
 
-![Screenshot]('../bnf/src/images/homePic.JPG'?raw=true "Title")
-![About Page]('http://bnf/src/images/aboutPage.JPG')
+![homePic](https://user-images.githubusercontent.com/54692909/135358522-2b64217a-8d12-41c8-938a-5a92aefaaf43.JPG)
+
+![aboutPic](https://user-images.githubusercontent.com/54692909/135358616-2eb543b0-660f-4df5-9fd2-28308e103030.JPG)
+
+![contactPic](https://user-images.githubusercontent.com/54692909/135358677-01b319e0-9da6-4321-a558-6e33c250be71.JPG)
+
+![detailPic](https://user-images.githubusercontent.com/54692909/135358701-f031339d-b223-47f0-bca5-6c2431a584c1.JPG)
+
+![shopPic](https://user-images.githubusercontent.com/54692909/135358728-d8770a29-26cb-4f14-840d-c3694523a3f1.JPG)
+
+![cartPic](https://user-images.githubusercontent.com/54692909/135358757-190d4e0f-b583-4c97-ab7c-dfc24786f99f.JPG)
 
 ### `yarn test`
 
