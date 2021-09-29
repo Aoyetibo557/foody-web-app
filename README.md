@@ -16,8 +16,8 @@ You will also see any lint errors in the console.
 
 ### app screenshots
 
-![Screenshot]('/src/images/homePic.JPG')
-![aScreenshot]('/src/images/aboutPic.JPG')
+![Screenshot]('homePic.JGP')
+![Screenshot]('/src/images/aboutPic.JPG')
 
 ### `yarn test`
 
