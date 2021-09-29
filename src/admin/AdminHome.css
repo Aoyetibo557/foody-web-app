@@ -1,0 +1,11 @@
+.adminhome {
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    padding: 20px;
+    background-color: #eee;
+}
+
+.admin__left{
+
+}

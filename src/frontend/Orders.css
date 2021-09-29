@@ -1,0 +1,96 @@
+
+.orders {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 15px;
+    margin-top: 5px;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.orders:hover {
+    background-color: rgba(34, 34, 34, 0.102);
+
+}
+
+
+.orders p,
+.orders>p span {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.7;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+.orders p {
+    width: 120px;
+}
+
+.orders__pending {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 10px;
+}
+
+.orders__revenue {
+    background-color: rgba(25, 25, 112, 0.171);
+    border-radius: 50px;
+    padding: 5px;
+    text-align: center;
+    width: 50px !important;
+    font-size: 14px;
+    font-weight: 600;
+} 
+
+.span {
+    font-size: 13px;
+    opacity: 0.4;
+    font-weight: 600;
+}
+
+
+.order-span{
+    display: flex;
+    flex-direction: column;
+    font-size: 14px;
+}
+
+.orders__pending p {
+    width: 200px;
+}
+
+.orders__btn {
+    padding: 5px;
+    font-weight: 500;
+    font-size: 15px;
+    border: none;
+    background-color: rgba(0, 0, 255, 0.575);
+    color: #fff;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.orders__btn:hover {
+    transition: all ease 0.5s;
+    transform: scale(1.02);
+    background-color: red;
+}
+
+.approved {
+    background-color: rgba(255, 0, 0, 0.37);
+}
+
+.order-checkIcon{
+    font-size: 19px ;
+    color: green !important;
+}
+
+.declineIcon {
+    font-size: 19px;
+    color: red !important;
+}
+

@@ -1,0 +1,23 @@
+
+.footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.footer__container {
+    display: flex;
+    flex-direction: column;
+}
+
+.footer__container div {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.footer__link{
+    font-size: 1.6rem;
+    color: #000;
+}

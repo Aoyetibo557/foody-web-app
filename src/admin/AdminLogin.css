@@ -1,0 +1,26 @@
+
+
+.adminlogin {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eee;
+    height: 100vh;
+}
+
+.adminlogin__container{
+    padding: 30px;
+    width: 400px;
+    height: 400px;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+}
+
+.h5 {
+    font-size: 1.7rem;
+    opacity: 0.6;
+    font-weight: 700;
+    text-transform: uppercase;
+    text-decoration: overline;
+}

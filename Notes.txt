@@ -1,0 +1,21 @@
+how the cart works: im using sessionId to create adocument in firebase to hold the selected items;
+a function creates a session id if there isn't any and add's it to the sessionCart collection in firebase.
+
+--in Cart.js:
+i'm using a function to get the ids saved in the sessionCart documents, then passing it to CartCard to retrieve the object before displaying it
+
+:Note/Tasks to accomplish:[
+    - Tryfixing the session creation function to be a little longer.
+    - After tab is closed destroy session, and remove session from the database
+    - after payment clear sessionCart of the session just payed. ergo: destroy session
+    - make sure the orders collection is updated after every order:
+    - create the function that will connect to the orders collection fron checkpoint 
+
+    --- create checkpoint page / componenet
+]
+
+:Micelaneous tasks: [
+    - mobile responsoveness needs to be fixed for both cart and shop
+    - the button/ links on both page need to be active/ functioning
+    - the category bar needs to be responsive in grid formart
+]

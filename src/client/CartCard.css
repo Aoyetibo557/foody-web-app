@@ -1,0 +1,133 @@
+
+.cartcard { 
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+}
+
+.cartcard__container {
+    /* display: flex;
+    flex-direction: row;
+    align-items: center; */
+    /* justify-content: space-evenly; */
+    margin-top: 10px;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    border-bottom: .7px solid rgba(0, 0, 0, 0.109);
+
+}
+
+.left-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    width: 30vw;
+}
+
+.right-div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+.cartcard__img {
+    width: 300px;
+    height: 300px;
+    object-fit: contain;
+}
+
+.cartcard__info {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: space-evenly;
+    padding: 10px;
+}
+
+.cartcard__name {
+    font-size: 1.4rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-family: 'Comfortaa', cursive;
+}
+
+.cartcard__cat {
+    font-size: 14px;
+    font-weight: 300;
+    text-transform: uppercase;
+    font-family: 'Comfortaa', cursive;
+}
+
+
+.weight__span {
+    font-weight: 700;
+    font-size: 14px;
+    opacity: 0.6;
+    font-family: 'Comfortaa', cursive;
+}
+
+.cartcard__weight {
+    font-size: 17px;
+    font-family: 'Comfortaa', cursive;
+
+}
+
+.cartcard__price {
+    font-size: 17px;
+    font-weight: 800;
+    font-family: 'Comfortaa', cursive;
+    margin-top: 25px;
+    margin-left: 10px;
+
+}
+
+.cartcard__input{
+    width: 85px;
+    padding: 3px;
+    border: .7px solid rgba(0, 0, 0, 0.349);
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+
+}
+
+.cartcard__input::placeholder{
+    opacity: 1;
+    color: #000;
+    font-size: 16px;
+    font-family: 'Comfortaa', cursive;
+}
+
+.cartcard__input[type=number]::-webkit-inner-spin-button {
+    width: 20px !important;
+    outline: none;
+    opacity: 1;
+}
+
+.cartcard__links {
+    width: 200px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.cartcard__link {
+    color: blueviolet;
+    text-decoration: none;
+    font-size: 13px;
+    font-family: 'Comfortaa', cursive;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.cartcard__link:active{
+    transform: scale(.75);
+}
+
+.cartcard__link:hover{
+    text-decoration:line-through ;
+}

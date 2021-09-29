@@ -1,0 +1,30 @@
+.skeleton-wrapper {
+    margin: 20px auto;
+    padding: 10px 15px;
+    border-radius: 4px;
+    position: relative;
+    overflow: hidden;
+}
+
+.skeleton-card {
+    width: 250px;
+}
+
+
+.skeleton-card__btm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+/* Themes for the Skeleton */
+
+.light {
+    background-color: #f2f2f2;
+    /* background: #fff; */
+}
+
+.skeleton-wrapper.dark {
+    background-color: #444;
+}

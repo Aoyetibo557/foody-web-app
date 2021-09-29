@@ -1,0 +1,140 @@
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    height: 100vh;
+    width: 300px;
+    background-color: white;
+    border-radius: 7px;
+}
+
+.sidebar-top {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    justify-content: space-evenly;
+    margin: 4px;
+    border-bottom: 1px solid rgba(34, 34, 34, 0.15);
+}
+
+
+.sidebar-mid__container {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    align-items: center;
+    justify-content: space-between;
+    height: 300px;
+}
+.sidebar-mid {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    background-color: rgba(34, 34, 34, 0.102);
+    border-radius: 10px;
+    padding: 10px;
+    width: 200px;
+    
+}
+
+.sidebar-mid h5 {
+    font-weight: 500;
+    font-size: 14px;
+}
+
+.sidebar-mid p {
+    font-size: 12px;
+    color: rgba(255, 0, 0, 0.575);
+}
+
+.sidebar-user {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.sidebar__link {
+    text-decoration: none;
+    color: #222 !important;
+    font-weight: 600;
+    font-size: 15px;
+    padding: 10px;
+    margin-top: 3px;
+}
+
+.sidebar__link:hover {
+    border-radius: 2px;
+    background-color: rgba(34, 34, 34, 0.102);
+}
+
+.active {
+    border-radius: 2px;
+    background-color: rgba(34, 34, 34, 0.102);
+}
+
+.status__div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.status-icon {
+    font-size: 2rem;
+    opacity: 0.4;
+    color: red ;
+}
+
+.storeState {
+    font-weight: 700;
+    opacity: 0.4;
+    font-size: 16px;
+    text-transform: uppercase;
+}
+.mid-span{
+    font-weight: 600;
+    font-size: 14px;
+    opacity: 0.6;
+    position: relative;
+}
+
+.sidebar-btn {
+    border: none;
+    background: #fff;
+    color: #111;
+    font-size: 15px;
+    font-weight: 700;
+    text-transform: uppercase;
+    border-radius: 7px;
+    padding: 9px;
+    margin-bottom: 3px;
+    cursor: pointer;
+    opacity: 0.7;
+    width: 100px;
+
+}
+
+.sidebar-btn:hover {
+    background-color: #111;
+    color: #fff;
+    opacity: 1;
+    transition: all ease .3s;
+    transform: scale(1.04);
+}
+
+.adminName {
+    display: flex;
+    flex-direction: column;
+}
+
+.adminName__name {
+    font-size: 15px;
+    font-weight: 600;
+    
+}
+
+.adminName__email {
+    font-size: 14px;
+    font-weight: 300;
+}

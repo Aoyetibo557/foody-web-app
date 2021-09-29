@@ -1,0 +1,89 @@
+.tab{
+
+}
+
+.tab__header {
+    display: flex;
+    flex-direction: row;
+}
+
+.contentTab {
+    background-color: #fcfcff;
+    color: #222;
+    border: none;
+    font-size: 13px;
+    padding: 13px;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+.contentTab:hover {
+    background-color: rgba(34, 34, 34, 0.102);
+
+}
+
+.active-tabs {
+    background-color: rgba(34, 34, 34, 0.102);
+
+}
+
+.tab-icon {
+    font-size: 15px;
+   
+}
+
+.tabform__div {
+    height: 60vh;
+}
+
+.tab-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 100%;
+    height: 100%;
+}
+
+.tab-form div {
+    display: flex;
+    flex-direction: column;
+}
+
+.tab-form div input {
+    height: 30px;
+    padding: 10px;
+    border: 1px solid rgba(17, 17, 17, 0.172);
+    font-size: 15px;
+    font-weight: 400;
+}
+
+.tab-form div label {
+    font-size: 14px;
+    font-weight: 600;
+    opacity: 0.6;
+}
+
+.btn {
+    padding: 12px;
+    background: blue;
+    color: #fff;
+    font-size: 15px;
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+    width: 300px;
+}
+
+.btn:hover {
+    transition: all ease 0.2s;
+    transform: scale(1.05);
+}
+
+.content {
+    display: none;
+}
+
+.active-content {
+    display: flex;
+    flex-direction: column;
+}

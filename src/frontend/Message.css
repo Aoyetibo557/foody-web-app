@@ -1,0 +1,69 @@
+
+.message {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    width: 95%;
+    padding: 10px;
+    background-color: #fcfcff;
+    border-bottom: 1px solid rgba(25, 25, 112, 0.151);
+    cursor: pointer;
+}
+
+.message:hover {
+    transition: all ease-in .2s;
+    border-bottom: 2px solid midnightblue;
+}
+
+.message__left {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.message__left div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.dotIcon { 
+    color: blue;
+    font-size: 3rem;
+}
+
+.message__img {
+    width: 60px;
+}
+
+.message__right {
+    margin-left: 20px;
+}
+
+.sender {
+    font-size: 17px;
+    font-weight: 700;
+}
+
+.date{
+    font-size: 12px;
+    font-weight: 300;
+}
+
+.subject {
+    font-weight: 400;
+    font-size: 16px;
+    opacity: 0.5;
+    text-transform: capitalize;
+}
+
+.read {
+    background-color: #f5eded;
+}
+
+.checkIcon {
+    color: blueviolet;
+    font-size: 1.2rem;
+    padding: 5px;
+}

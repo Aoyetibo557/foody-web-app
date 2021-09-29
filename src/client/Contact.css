@@ -1,0 +1,168 @@
+.contact { 
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    /* height: 70vh; */
+}
+
+.contact__contanier{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    width: 60%;
+}
+
+
+.contact__img {
+    width: 30vw;
+    object-fit: contain;
+}
+
+
+.contact__form {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+}
+
+
+.contact__form div {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+}
+
+.bottom__container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+
+.contact__form div input {
+    padding: 3px;
+    border: none;
+    border-bottom: 1px solid #111;
+    font-family: 'Comfortaa', cursive;
+    outline: none;
+    width: 100%;
+    outline: 0;
+    font-size: 13px;
+    padding: 7px 0;
+    transition: border-color 0.2s;
+
+}
+
+
+.contact__form div label {
+    font-size: 13px;
+    font-family: 'Comfortaa', cursive;
+    transition: 0.2s;
+}
+
+.contact__textarea {
+    padding: 5px;
+    height: 200px;
+    width: 100%;
+    resize: none;
+    font-family: 'Comfortaa', cursive;
+
+}
+
+
+.contact__btn{
+    font-size: 15px;
+    padding: 5px;
+    border: none;
+    font-family: 'Comfortaa', cursive;
+    background-color: #111;
+    color: #fff;
+    cursor: pointer;
+    width: 170px;
+}
+
+.contact__btn:hover{
+    transform: scale(1.03);
+}
+
+
+.contact__btm {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 100%;
+    height: 150px;
+}
+
+.contact__btm div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+.contact__btm div p, .contact__btm div a {
+    color: #111 ;
+    font-size: 18px;
+    font-family: 'Comfortaa', cursive;
+
+}
+
+.contact__btm div a:hover {
+    color: magenta;
+}
+
+.contact__icon {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.contact__icon:hover {
+    transform: scale(1.05);
+}
+
+@media only screen and (max-width: 768px) {
+    .contact { 
+        width: 100%;
+        height: 100%;
+       
+    }
+
+    .contact__contanier{
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        width: 100%;
+        height: 100%;
+    }
+
+    .contact__img {
+        width: 300px;
+    }
+
+    .contact__form {
+        border: none;
+        width: 100%;
+    }
+
+    .contact__form div input,
+    .contact__form div textarea{
+        width: 100%;
+    }
+
+    .contact__btn{
+        width: 100%;
+    }
+
+    .contact__btm {
+        display: none;
+    }
+
+}
