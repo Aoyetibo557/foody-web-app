@@ -44,10 +44,17 @@ function App() {
    * to get all user info,sets the email using context api
    */
   const retrieveUserEmail = () => { 
-    var t = sessionStorage.getItem("userEmail");
+    var useremail = sessionStorage.getItem("userEmail");
+    var uid = sessionStorage.getItem("uid");
+
+    dispatch({
+      type: actionTypes.SET_USEREMAIL,
+      userEmail: useremail
+    })
+
     dispatch({
       type: actionTypes.SET_USER,
-      userEmail: t
+      user: uid,
     })
   }
 
@@ -173,7 +180,7 @@ function App() {
             </Route>
 
             <Route exact path="/register" component ="">
-              {/* <Register setUToken={setUToken} /> */}
+              <Register setUToken={setUToken} />
             </Route>
           </div>
 

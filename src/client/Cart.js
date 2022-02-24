@@ -10,6 +10,8 @@ import CartCard from './CartCard';
 import { Link } from 'react-router-dom';
 
 function Cart() {
+    const [{user, userEmail}] = useStateValue();
+
     const [cartItems, setCart] = useState([]);
     const [cartLen, setCartLen] = useState(0);
 
@@ -18,49 +20,23 @@ function Cart() {
 
     useEffect(() => {
         console.clear();
-        // id ? (
-        //     createSessionCart(getSessionId())
-        // ):(
-        //     getUserCart(getSessionId())
-        // )
-        // if(getSessionId() === "")
-        // console.log("here", createSessionId(4));
-      setDirection();
+       
+        // decider();
+        getUserCart();
+        console.log("user", user, userEmail)
     },[]);
 
-    const setDirection = () => {
-        console.log("sessid", getSessionId())
-
-        
-        if(newId === undefined) {
-            console.log("Empty", id);
-            if(getSessionId() === false) {
-                createSessionId(20)
-                createSessionCart(getSessionId());
-                console.log("session id empty")
-            }
-            // getUserCart(getSessionId());
-
+    
+    const decider = () => {
+        if(sessionStorage.getItem("userEmail") !== null) {
+            getUserCart();
+            console.log("Done")
         }else{
-            console.log("Not Empty!!", id)
-            if(getSessionId() === false) {
-                createSessionId(20)
-                console.log("session id empty")
-                createSessionCart(getSessionId());
-            }else{
-                createSessionCart(getSessionId());
-                getUserCart(getSessionId());
-            }
-           
+            getEmptyCart()
         }
     }
 
-    const getSessionId = () => {
-        var session_id = /SESS\w*ID=([^;]+)/i.test(document.cookie) ? RegExp.$1 : false;
-        return session_id;
-    }
-    
-
+   
     const createSessionId = (days) => {
         const ID = '_'+Math.random().toString(36).substr(0,100);
         var date, expires;
@@ -72,22 +48,6 @@ function Cart() {
             expires = "";
         }
         return document.cookie = "foody-sess_id" + "=" + ID + expires + "; path=/";
-    }
-
-    const createSessionCart = async(sessionId) => {
-        const dbRef = db.collection("sessionCart").doc(sessionId);
-        const doc = await dbRef.get()
-
-        if(!doc.exists) {
-            dbRef.set({
-                ids: [],
-            }).then(() => {
-                console.log("Documnet Created!");
-                addToCart(sessionId)
-            })
-        }else{
-            addToCart(sessionId);
-        }
     }
 
     const addToCart = async(sessionId) => {
@@ -110,20 +70,21 @@ function Cart() {
     }
 
 
-    const getUserCart = (sess_id) => {
-        const newCart = []
-        db.collection("sessionCart").doc(sess_id).onSnapshot((doc) => {
-            // console.log(doc.data().ids);            
-            newCart?.push(doc.data().ids);
-            setCart(doc.data().ids);
-            setCartLen(cartItems.length)
-
-        })
-    }
-
     const getEmptyCart = () => {
         const newCart = []
         setCart(cartItems.length)
+    }
+
+
+    const getUserCart = async() => {
+        // check if there is a session user
+        var currentUser = sessionStorage.getItem("userEmail");
+        if(userEmail !== null) {
+            await db.collection("users").doc(user).get().then((doc) => {
+                console.log(doc.data().cart)
+                setCart(doc?.data()?.cart)
+            })
+        }
     }
 
    

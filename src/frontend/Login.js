@@ -3,7 +3,7 @@ import React, {useState, useEffect} from 'react';
 import "./Login.css";
 import LoginForm from './LoginForm';
 import { FcGoogle } from 'react-icons/fc';
-import Image from '../images/loginImage.jpg';
+import Image from '../images/DeliveryGrocery.jpg';
 import AOS from 'aos';
 import "aos/dist/aos.css";
 import RegisterForm from './RegisterForm';

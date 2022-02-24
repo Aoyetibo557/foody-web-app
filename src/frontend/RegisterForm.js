@@ -40,7 +40,6 @@ function RegisterForm({setUToken}) {
             duration: 1000,
             easing: 'ease'
         });
-        setUserLoginToken()
     },[])
 
     const handleSubmit = (e) => {
@@ -56,7 +55,7 @@ function RegisterForm({setUToken}) {
         confirmPwd !== pwd ? setPwdErr("Passwords does not match!") : setPwdErr("");
     
         if(fnameErr.length === 0 && lnameErr.length === 0 && emailErr.length === 0 && phNoErr.length === 0 && pwdErr.length === 0) {
-            createNewAccount();
+            altCreateNewAccount();
         }
         else {
             setRegisterError("An Error was discovered!")
@@ -74,42 +73,31 @@ function RegisterForm({setUToken}) {
         setConfPwd("")
     }
 
-    // create new account/documnet in firestore
-
-    const createNewAccount = async() => {
-        const snapShot = await db.collection("users").doc(email).get();
-
-        if (snapShot === null || !snapShot.exists) {
-            db.collection("users").doc(email).set({
+    /**
+     * CREATE ACCOUNT FUNCTION
+     * this function creates an account using firebase email and password functionality
+     * It then reroutes to the home page after creating an account
+     */
+    const altCreateNewAccount = async() => {
+        auth.createUserWithEmailAndPassword(email, pwd).then(cred => {
+            return db.collection('users').doc(cred.user.uid).set({
+                EmailAddress: email,
                 FirstName: firstname,
                 LastName: lastname,
-                EmailAddress: email,
                 Phone: phoneNumber,
-                UserPwd: pwd
+                UserPwd: pwd,
             }).then(() => {
                 console.log("Transaction was A Success!");
-                setUserLoginToken();
+                sessionStorage.setItem("userEmail", email); //save userEmail in session storage
                 history.push("/")
                 resetForm();
             }).catch((error) => {
-                console.log(error);
+                console.log(error)
+                setRegisterError("Sorry an Account with that email already exists")
             })
-        }else{
-            setRegisterError("Sorry an Account with that eamail already exists")
-        }
-    }
-
-    const setUserLoginToken = () => {
-        return db.collection("Admin").doc("userToken").onSnapshot((doc) => {
-            doc.data();
-            if(doc.data() !== null || doc.data()) {
-                // setUToken(doc.data().token); // fix this error later on
-                console.log("Here:", doc.data().token);
-                return doc.data().token;
-            }
         })
     }
-  
+
 
     return (
         <div className="register">

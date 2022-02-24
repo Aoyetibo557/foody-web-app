@@ -9,7 +9,7 @@ import AOS from 'aos';
 import 'aos/dist/aos.css';
 import { db } from '../backend/firebase';
 import { FcGoogle } from 'react-icons/fc';
-import Image from '../images/loginImage.jpg';
+import Image from '../images/DeliveryGrocery.jpg';
 import {auth, provider} from '../backend/firebase';
 import PropTypes from 'prop-types';
 import { useStateValue } from '../StateProvider';
@@ -18,7 +18,7 @@ import { actionTypes } from '../reducer';
 
 
 function LoginForm({setUToken}) {
-    const [{userEmail}, dispatch] = useStateValue();
+    const [{userEmail,user}, dispatch] = useStateValue();
 
 
     const [email, setEmail] = useState();
@@ -60,7 +60,8 @@ function LoginForm({setUToken}) {
     const handleSubmit = (e) => {
         e.preventDefault();
         validateForm();
-        getAccount();
+        // getAccount();
+        altUserLogin();
     }
 
     const signInWithGoogle = (ev) => {
@@ -74,51 +75,54 @@ function LoginForm({setUToken}) {
         });
     }
 
-    // login function
-    const getAccount = async() => {
 
-        try{
-            const snap = await db.collection("users").doc(email).get();
-            if(snap !== null || snap.exists) {
-                if(snap.data().UserPwd === pwd) {
-                    // alert("User and Password Match!");
-                    
-                    userLogiin();
-                    sessionStorage.setItem("userEmail", email); //save userEmail in session storage
+    /**
+     * LOGIN FUNCTION
+     * This function uses fireabse email and password auth
+     * it checks the database collection called users for a user Id that matches 
+     * the auth, then compares the password in the daoc with the password entered then sets the
+     * session storage to the email for that account. 
+     * Then reroutes to the home page
+     * 
+     */
+    const altUserLogin = async() => {
+        await auth.signInWithEmailAndPassword(email, pwd)
+            .then((userCredntials) => {
+                const user = userCredntials.user;
+                console.log("User", user)
 
-                    dispatch({
-                        type: actionTypes.SET_USER,
-                        userEmail: email,
-                    })
+                db.collection("users").doc(user.uid).get().then((doc) => {
+                    const snap = doc.data();
 
-                    history.push("/")
-                }
-                else{
-                    setLoginErr("Wrong Password or Email Entered!");
-                }
-            }else{
-                setLoginErr("Account with that email doesn't exist!");
-            }
-        }catch(error) {
-            setLoginErr("Error Logging Into Account!");
-        }
-        
-    }
+                    if(snap !== null) {
+                        if(snap.UserPwd === pwd) {
+                            sessionStorage.setItem("userEmail", email); //save userEmail in session storage
+                            sessionStorage.setItem("uid", user.uid); //set the user id in session storage
+                            dispatch({
+                                type: actionTypes.SET_USEREMAIL, 
+                                userEmail: email,
+                            })
+                            dispatch({
+                                type: actionTypes.SET_USER,
+                                user: user.uid,
+                            })
+                            
 
-
-    const userLogiin = () => {
-        // console.clear();
-        return db.collection("Admin").doc("userToken").onSnapshot((doc) => {
-            doc.data();
-
-            if(doc.data() !== null || doc.data()) {
-                console.log("The user token return:", doc.data().token);
-                
-                setUToken(doc.data().token);
-                
-                return doc.data();
-            }
-        })
+                            history.push("/")
+                        }else{
+                            setLoginErr("Wrong Password or Email Entered!");
+                        }
+                    }else{
+                        setLoginErr("Account with that email doesn't exist!");
+                    }
+                 })
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                console.log(errorCode, errorMessage);
+                setLoginErr(errorMessage)
+            });
     }
 
     return (
@@ -131,6 +135,10 @@ function LoginForm({setUToken}) {
                 <div data-aos ="fade-left" data-aos-duration="3000" className="login__right">
                     <h5>Login</h5>
                         <p>Choose account type and continue shopping!</p>
+
+                            {/* login error */}
+                            {loginErr && <p className='loginerror'>{loginErr}</p>}
+
                         <div>
                             <button onClick = { signInWithGoogle} type="button" className="formSec-btn"><FcGoogle className="google-icon" />Sign in with Google</button>
                         </div>
